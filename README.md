@@ -1,4 +1,4 @@
-# nuxt_templateの使い方
+# Vuex(vuex-module-decorators)を使う
 
 ## VSCodeでコンテナに接続する
 
@@ -13,25 +13,6 @@ Remote Development
     1. すでにフォルダを開いている場合は、`Reopen in Container`を選択
 1. このフォルダを選択
 
-## プロジェクトを作る
-
-1. メニューの `Terminal -> New Terminal` をクリック  
-  ここでコンテナに接続したターミナルが開く
-
-1. Nuxtプロジェクト作成コマンドを実行  
-
-```bash
-yarn create nuxt-app
-```
-
-3. 最近のバージョンでは直下にファイルがあるとエラーになるので、プロジェクト用のフォルダ（ここでは `project` ）を指定し、プロジェクト作成後、中にできたファイルを全て親フォルダに移動する
-
-```bash
-yarn create nuxt-app project
-```
-
-4. `Rebuild Container` で再度開く
-
 1. 左側のペインに `NPM SCRIPTS` を開く
 
 1. `dev` にポイントし、実行ボタンをクリックする
@@ -41,6 +22,26 @@ yarn create nuxt-app project
 ```bash
 $ http://localhost:3000
 ```
+
+## VuexをNuxtで利用する
+
+諸々無視すれば、 `store` ディレクトリにモジュールと対応するファイルを設置すると利用できる。
+
+が、TypeScriptとVuexは相性良くない。
+
+* 型安全が守られない
+* インテリセンスが効かない
+
+Nuxt公式は `vuex-module-decorators` を推奨している。
+
+### インストール
+
+```sh
+yarn add -D vuex-module-decorators
+```
+
+
+
 
 ## Build Setup
 
