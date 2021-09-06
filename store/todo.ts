@@ -1,7 +1,7 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 import { $axios } from '~/utils/api'
 
-type Todo = {
+export type Todo = {
     id?: Number
     title: String
     description: String
@@ -31,6 +31,7 @@ export default class Todos extends VuexModule {
     @Mutation
     private add(todo: Todo) {
         this.todos.push(todo)
+        console.log("added todo")
     }
 
     @Mutation
@@ -50,6 +51,7 @@ export default class Todos extends VuexModule {
 
     @Action({ rawError: true })
     public async createTodo(payload: Todo) {
+        console.log("createTodo")
         const { data } = await $axios.post<Todo>('/api/todo', payload)
         this.add(data)
     }
